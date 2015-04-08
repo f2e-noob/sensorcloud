@@ -508,8 +508,8 @@ section {
   line-height: 50px;
 }
 .case-list{
-  border-bottom: 1px solid #d6d6d6;
-  padding:60px 0 20px 0;
+  border-bottom: 1px solid #e8e8e8;
+  padding:50px 0 30px 0;
   height: 280px;
 }
 .case-img{
@@ -520,6 +520,11 @@ section {
 }
 .case-cont{
   width: 645px;
+  color: #5a5a5a;
+  line-height: 25px;
+}
+.case-text{
+  font-size:14px;
 }
 .case-cont h2{
   font-size:20px;
@@ -527,7 +532,11 @@ section {
   font-weight: bold;
   margin:5px 0 10px;
 }
-.case-cont .label {
-  padding: .2em 1em .3em;
-  margin-top: 20px;
+.case-text .label {
+  padding: .3em 1.5em .3em;
+  display: inline-block;
+  margin-bottom:10px;
+  background: #aeaeae;
+  font-weight: normal;
 }
+ 
