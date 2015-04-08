@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>传感云</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/css/main.css">
+        <script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+    </head>
+    <body>
+        <a id="scroll-to-top">
+            <span class="fa fa-chevron-up fa-lg"></span>
+        </a>
+        <div style="width:100%; background:#fff; height:90px;">
+            <div class="navbox">
+                <a href="" class="nav-brand">
+                    <img src="../static/images/logo.jpg"></a>
+                <div class="pull-right login-btn">
+                    <a class="btn btn-primary">登录</a>
+                    <a class="btn btn-default">注册</a>
+                </div>
+                <ul class="nav-list pull-right">
+                    <li>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li class="active">
+                        <a href="case.html">案例展示</a>
+                    </li>
+                    <li>
+                        <a href="">产品中心</a>
+                    </li>
+                    <li>
+                        <a href="">应用场景</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="container-fluid" style="background:#f8f8f8; border-top:1px solid #bebfc0;">
+             <div class="row-fluid">
+              <div class="span3">.col-md-8</div>
+              <div class="span9">.col-md-4</div>
+            </div>
+        </div>
+         <div class="foot">
+            <div class="container">
+                <a href="javascript:void(0);">公司网站</a> 
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>
+                    地址：    北京市上地东路盈创动力大厦E座801座
+                    <br/>                            
+                    电话：    010-5885 6680
+                    <br/>                            
+                    传真：    010-5885 6685
+                    <br/>                            
+                    邮箱：    contact@smartbow.net
+                    <br/>                            
+                </p>
+                <p>
+                    地址：    江苏省无锡市滨湖区建筑西路777号A3号楼3层
+                    <br/>                            
+                    电话：    0510-81801999
+                    <br/>                            
+                    传真：    0510-818019998
+                    <br/>                            
+                    邮箱：    contact@smartbow.net
+                    <br/>                            
+                </p>
+            </div>
+        </div>
+
+        <script src="../static/js/jquery.lazyload.js"></script> <!-- 延迟加载图片 -->
+        <script>
+            $(window).on('scroll', function(){
+                var top  = $(this).scrollTop(),
+                    $btn = $('#scroll-to-top');
+
+                if (top === 0) {
+                    $btn.removeClass('visible');
+                } else {
+                    $btn.addClass('visible');
+                }
+            });
+
+            $('#scroll-to-top').on('click', function(){
+                $('html, body').animate({
+                    scrollTop: '0px'
+                });
+            });
+
+            $(document).ready(function(){
+                $("img.lazy").lazyload({effect: "fadeIn"});
+            });
+        </script>
+    </body>
+</html>
