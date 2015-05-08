@@ -7,7 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../static/css/unslider.css">
         <link rel="stylesheet" href="../static/css/sequence.css"/>
-         <link rel="stylesheet" href="../static/css/main.css">
+        <link rel="stylesheet" href="../static/css/main.css">
+        <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+        <script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="../static/js/bootstrap.js"></script>
     </head>
     <body>
         <a id="scroll-to-top">
@@ -18,9 +21,112 @@
                 <a href="" class="nav-brand">
                     <img src="../static/images/logo.jpg"></a>
                 <div class="pull-right login-btn">
-                    <a class="btn btn-primary">登录</a>
-                    <a class="btn btn-default">注册</a>
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#logo">登录</a>
+                    <a class="btn btn-default" data-toggle="modal" data-target="#reg">注册</a>
                 </div>
+            
+               <!-- 登录 -->
+               <div class="modal fade" id="logo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                   <div class="modal-dialog" style="width:600px; margin:200px auto 0;">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                               </button>
+                               <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+                           </div>
+                           <div class="modal-body">
+                               <form class="form-horizontal" method="post" id="form">
+                                   <div class="form-group">
+                                       <label class="control-label col-md-3">姓名</label>
+                                       <div class="col-md-6">
+                                           <input type="text" class="form-control" name='name' datatype="*" nullmsg="姓名不能为空！" placeholder="请输入姓名"/>                                   
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                        <label class="control-label col-md-3">密码</label>
+                                       <div class="col-md-6">
+                                           <input type="text"class="form-control"  datatype="*" nullmsg="请输入密码！" name='password' placeholder="请输入密码"/>
+                                       </div>
+                                   </div>
+                                </form>
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal"><i class="glyphicon glyphicon-off"></i> 关闭</button>
+                               <button type="button" class="btn btn-primary"><i class="fa fa-check"></i> 确定</button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- 注册 -->
+               <div class="modal fade" id="reg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="z-index:9999;">
+                   <div class="modal-dialog" style="width:600px; margin:200px auto 0;">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                               </button>
+                               <h4 class="modal-title" id="myModalLabel">用户注册</h4>
+                           </div>
+                           <form class="form-horizontal" method="post" action="/sendmail">
+                               <div class="modal-body">
+                                   <div id="warm-hint">
+                                       <span class="fa fa-smile-o"></span>
+                                       温馨提示:请填写正确的用户信息以便能联系上您(24小时之内必回复)
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-md-3"> <font color="red">*</font>
+                                           姓名：
+                                       </label>
+                                       <div class="col-md-6">
+                                           <input type="text" class="form-control" name='name' placeholder="请输入姓名" datatype="*" nullmsg="姓名不能为空！" id="get-cont-width"/>               
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-md-3"> <font color="red">*</font>
+                                           邮箱：
+                                       </label>
+                                       <div class="col-md-6">
+                                           <input type="text" class="form-control input" name='email' placeholder="请输入邮箱" datatype="e" nullmsg="邮箱不能为空！" errormsg="请输入正确邮箱！" id="get-cont-width"/>               
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-md-3">
+                                           <font color="red">*</font>
+                                           手机号码：
+                                       </label>
+                                       <div class="col-md-6">
+                                           <input type="text" class="form-control" name='phone' placeholder="请输入手机号码" datatype="m" id="get-cont-width" nullmsg="手机号不能为空！" errormsg="请输入正确的手机号码！"/>               
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-md-3">
+                                           <font color="red">*</font>
+                                           单位名称：
+                                       </label>
+                                       <div class="col-md-6">
+                                           <input type="text" class="form-control" name='company' placeholder="请输入单位名称" datatype="*" id="get-cont-width" nullmsg="单位名称不能为空！" errormsg="请输入单位名称！"/>               
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label class="control-label col-md-3">
+                                           <font color="red">*</font>
+                                           单位地址：
+                                       </label>
+                                       <div class="col-md-6">
+                                           <textarea class="form-control" placeholder="请输入单位地址！" name='address' datatype="s" id="get-cont-width" nullmsg="单位地址不能为空！" errormsg="请输入单位地址"></textarea>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="modal-footer">
+                                   <button type="button" class="btn btn-default" data-dismiss="modal"><i class="glyphicon glyphicon-off"></i> 关闭</button>
+                                   <button type="submit" class="btn btn-primary btn-sendmail" id="btn-email" data-complete-text="发送成功"><i class="fa fa-check"></i> 发送邮件</button>
+                               </div>
+                           </form>
+                       </div>
+                   </div>
+               </div>
                 <ul class="nav-list pull-right">
                     <li class="active">
                         <a href="index.html">首页</a>
@@ -32,7 +138,7 @@
                         <a href="product.html">产品中心</a>
                     </li>
                     <li>
-                        <a href="">项目分享</a>
+                        <a href="pro-share.html">项目分享</a>
                     </li>
                 </ul>
 
@@ -110,7 +216,7 @@
         </div>
 
         <div class="container-fulid" style="background:#20639b; padding-bottom:40px; position:relative; overflow:hidden;">
-         <img src="../static/images/view_bg.png" style="width:100%; position:absolute; left:0px; bottom:0;" class="sensor-in-img lazy"">
+         <img src="../static/images/view_bg.png" style="width:100%; position:absolute; left:0px; bottom:0;" class="sensor-in-img lazy">
          <div class="container">
              <div class="screen-view" id="view">
                  <img src="../static/images/view_img.png" style="width:91px; height:64px; margin:0 auto; display:block;">         
@@ -218,12 +324,14 @@
                 </p>
             </div>
         </div>
-        <script type="text/javascript" src="../static/js/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+
+
         <script type="text/javascript" src="../static/js/unslider.min.js"></script> <!-- banner -->
         <script type="text/javascript" src="../static/js/jquery.sequence-min.js"></script> <!-- 可视化数据切换 -->
-        <script src="../static/js/jquery.lazyload.js"></script> <!-- 延迟加载图片 -->
+        <script src="../static/js/jquery.lazyload.js"></script>   <!-- 延迟加载图片 -->
+        <script type="text/javascript" src="../static/js/Validform_v5.3.1.js"></script>
         <script>
+            // 首页大图切换
             function imgReload()
             {
                 var imgHeight = 0;
@@ -253,6 +361,7 @@
                 });
             });
 
+            //回到顶部
             $(window).on('scroll', function(){
                 var top  = $(this).scrollTop(),
                     $btn = $('#scroll-to-top');
@@ -270,6 +379,7 @@
                 });
             });
 
+            // 产品图片切换
             $(document).ready(function() {
                 var options = {
                     autoPlay: false,
@@ -288,10 +398,33 @@
                 });
             });
             
+            // 异步延迟加载
             $(document).ready(function(){
                 $("img.lazy").lazyload({effect: "fadeIn"});  
             });
 
+            // 表单验证
+            $(function(){
+              $("form").Validform({
+                ajaxPost:true,
+                tiptype: function(msg, o, cssctl) {
+                  if (!o.obj.is("form")) {
+                    var objtip = o.obj.siblings(".Validform_checktip");
+                    cssctl(objtip, o.type);
+                    objtip.text(msg);
+                   } else {
+                      var objtip = o.obj.find("#msgdemo");
+                      cssctl(objtip, o.type);
+                      objtip.text(msg);
+                   }
+                 }, 
+                 callback: function(data){
+                      if (data.status === true){
+                          $('#btn-email').button('complete').toggleClass('btn-primary btn-success');
+                      }
+                  }
+              });
+            });
         </script>
     </body>
 </html>
